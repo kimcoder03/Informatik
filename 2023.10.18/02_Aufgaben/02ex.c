@@ -88,7 +88,18 @@ int signum(int x) {
     `1` falls `x` strikt positiv ist.
     */
     /* BEGIN CHANGES */
-
+if (x < 0)
+{
+    result = -1;
+}
+else if (x == 0)
+{
+    result = 0;
+}
+else
+{
+    result = 1;
+}
     /* END CHANGES */
     return result;
 }
@@ -103,7 +114,18 @@ int is_leapyear(int year) {
     Weisen Sie der Variable `result` den Wert `1` zu, falls `year` ein Schaltjahr ist, und ansonsten `0`.
     */
     /* BEGIN CHANGES */
-
+if (year % 400 == 0)
+{
+    result = 1;
+}
+else if (year % 4 == 0 && year % 100 != 0)
+{
+    result = 1;
+}
+else
+{
+    result = 0;
+}
     /* END CHANGES */
     return result;
 }
@@ -115,6 +137,18 @@ int greatest_of_three(int a, int b, int c) {
     Weisen Sie der Variable `result` den größten Wert zu, den eine der drei Variablen `a`, `b`, `c` hat.
     */
     /* BEGIN CHANGES */
+    if (a >= b && a >= c)
+    {
+        result = a;
+    }
+    else if (b >= a && b >= c)
+    {
+        result = b;
+    }
+    else
+    {
+        result = c;
+    }
     
     /* END CHANGES */
     return result;
@@ -130,6 +164,11 @@ int is_prime(int n) {
     Weisen Sie der Variable `result` den Wert `1` zu, falls `n` eine Primzahl ist, und ansonsten `0`.
     */
     /* BEGIN CHANGES */
+if (n < 2)
+{
+    result = 0;
+}
+if 
 
     /* END CHANGES */
     return result;
