@@ -25,7 +25,15 @@ int sum_divisible_both(int n) {
     durch `7` *als auch* durch `13` teilbar sind.
     */
     /* BEGIN CHANGES */
-
+int i = 0;
+while (i <= n)
+{
+    i = i + 1;
+    if ((i % 7 == 0) && (i % 13 == 0))
+    {
+        result = result + i;
+    }
+}
     /* END CHANGES */
     return result;
 }
@@ -38,7 +46,15 @@ int sum_divisible_or(int n) {
     durch `7` *oder* durch `13` teilbar sind (das beinhaltet auch die Zahlen, die durch beides teilbar sind).
     */
     /* BEGIN CHANGES */
-
+int i = 1;
+while (i <= n)
+{
+    if ((i % 7 == 0) || (i % 13 == 0))
+    {
+        result = result + i;
+    }
+     i = i + 1;
+}
     /* END CHANGES */
     return result;
 }
@@ -51,7 +67,15 @@ int sum_divisible_either(int n) {
     durch `7` *oder* durch `13` teilbar sind (aber nicht durch beides).
     */
     /* BEGIN CHANGES */
-
+int i = 1;
+while (i <= n)
+{
+    if ((i % 7 == 0 && i % 13 != 0 ) || (i % 13 == 0 && i % 7 != 0))
+    {
+        result = result + i;
+    }
+     i = i + 1;
+}
     /* END CHANGES */
     return result;
 }
