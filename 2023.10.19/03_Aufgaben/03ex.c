@@ -179,8 +179,6 @@ Canvas descending_diagonal(Canvas c) {
             }
         }
     }
-
-
     return c;
 }
 
