@@ -44,7 +44,7 @@ int sum_of_divisibles(int n, int m) {
         if (number % m == 0)
         {
             sum = sum + number;
-            count++;
+            count = count + 1;
         }
     }
    
@@ -57,8 +57,20 @@ Aufgabe 1b:
 Geben Sie in dieser Funktion die Summe der ersten `n` natürlichen Zahlen (exklusive der Null) zurück, die durch `l` und durch `m` teilbar sind.
 */
 int sum_of_doubly_divisibles(int n, int l, int m) {
-    int i = 0;
-    return i;
+
+    int sum = 0;
+    int count;
+    int number;
+    for (number = 1; count < n; number++)
+    {
+        if (number % m == 0 && number % l == 0)
+        {
+            sum = sum + number;
+            count++;
+        }
+    }
+   
+    return sum;
 }
 
 /*
@@ -77,9 +89,9 @@ Canvas first_canvas_exercise(Canvas c) {
     Die linke untere Ecke der Canvas ist der Koordinatenursprung, dort sind die x- und die y-Koordinate jeweils `0`.
     Nach rechts steigen die x-Koordinaten, nach oben die y-Koordinaten.
     */
-    c = canvas_set_black(c, 0, 5);
-    c = canvas_set_black(c, 2, 0);
-    c = canvas_set_black(c, 12, 1);
+    c = canvas_set_black(c, 1, 5);
+    c = canvas_set_black(c, 2, 1);
+    c = canvas_set_black(c, 13, 4);
 
     /*
     Diese drei Funktionsaufrufe hier drüber färben drei unterschiedliche Pixel der Canvas schwarz.
@@ -121,6 +133,10 @@ die Breite und Höhe zurückgegeben.
 Hinweis: Koordinaten beginnen bei `0`, nicht bei `1`.
 */
 Canvas color_corners(Canvas c) {
+    c = canvas_set_black(c, 0, 0);
+    c = canvas_set_black(c, 0, 99);
+    c = canvas_set_black(c, 99, 0);
+    c = canvas_set_black(c, 99, 99);
     return c;
 }
 
