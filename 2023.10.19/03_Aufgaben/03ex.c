@@ -133,10 +133,15 @@ die Breite und Höhe zurückgegeben.
 Hinweis: Koordinaten beginnen bei `0`, nicht bei `1`.
 */
 Canvas color_corners(Canvas c) {
+
+    int height = canvas_height(c);
+    int width = canvas_width(c);
+
     c = canvas_set_black(c, 0, 0);
-    c = canvas_set_black(c, 0, 99);
-    c = canvas_set_black(c, 99, 0);
-    c = canvas_set_black(c, 99, 99);
+    c = canvas_set_black(c, width - 1, 0);
+    c = canvas_set_black(c, 0, height - 1);
+    c = canvas_set_black(c, width - 1, height - 1);
+
     return c;
 }
 
@@ -145,6 +150,14 @@ Aufgabe 2c:
 Färben Sie alle Pixel der Canvas schwarz.
 */
 Canvas paint_it_black(Canvas c) {
+    int height = canvas_height(c);
+    int width = canvas_width(c);
+
+    for (int x = 0; x < width; x++) {
+        for (int y = 0; y < height; y++) {
+            c = canvas_set_black(c, x, y);
+        }
+    }
     return c;
 }
 
@@ -156,6 +169,18 @@ und schauen sich das erwartete Ergebnis an).
 Falls eine Reihe nicht breit genug ist, färben Sie alle Pixel dieser Reihe schwarz.
 */
 Canvas descending_diagonal(Canvas c) {
+    int height = canvas_height(c);
+    int width = canvas_width(c);
+    
+    for (int x = 0; x < height; x++) {
+        for (int y = 0; y < width; y++) {
+            if (height - y -1 >= x) {
+                c = canvas_set_black(c, y, x);
+            }
+        }
+    }
+
+
     return c;
 }
 
@@ -166,6 +191,13 @@ Koordinaten `(x, y)`. Die Breite des Rechtecks ist `width`, und die Höhe ist `h
 auf die Canvas passt, sollen einfach die Teile ignoriert werden welche außerhalb liegen würden.
 */
 Canvas draw_rectangle(Canvas c, int x, int y, int width, int height) {
+
+    for (int x = 360; x < width-16; x++) {
+        for (int y = 477; y < height; y++) {
+            c = canvas_set_black(c, x, y);
+        }
+    }
+
     return c;
 }
 
