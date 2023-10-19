@@ -164,12 +164,22 @@ int is_prime(int n) {
     Weisen Sie der Variable `result` den Wert `1` zu, falls `n` eine Primzahl ist, und ansonsten `0`.
     */
     /* BEGIN CHANGES */
-if (n < 2)
+result = 1;
+if (n >= 2)
+{
+    for (int i = 2; i < n; i++)
+    {
+        if (n % i == 0)
+        {
+            result = 0;
+        }
+        
+    } 
+}
+else
 {
     result = 0;
 }
-if 
-
     /* END CHANGES */
     return result;
 }
@@ -182,6 +192,17 @@ int sum_first_primes(int n) {
     Beispiel für `n = 4`: `2 + 3 + 5 + 7 = 17`.
     */
     /* BEGIN CHANGES */
+int p = 0;
+int i = 0;
+while (p < n)
+{
+    if (is_prime(i) == 1)
+    {
+        p++;
+        result += i;
+    }
+    i++;
+}
 
     /* END CHANGES */
     return result;

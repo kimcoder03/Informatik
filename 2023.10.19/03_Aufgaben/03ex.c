@@ -36,7 +36,19 @@ Aufgabe 1a:
 Geben Sie in dieser Funktion die Summe der ersten `n` natürlichen Zahlen (exklusive der Null) zurück, die durch `m` teilbar sind.
 */
 int sum_of_divisibles(int n, int m) {
-    return 0;
+    int sum = 0;
+    int count;
+    int number;
+    for (number = 1; count < n; number++)
+    {
+        if (number % m == 0)
+        {
+            sum = sum + number;
+            count++;
+        }
+    }
+   
+    return sum;
 }
 
 /*
@@ -45,7 +57,8 @@ Aufgabe 1b:
 Geben Sie in dieser Funktion die Summe der ersten `n` natürlichen Zahlen (exklusive der Null) zurück, die durch `l` und durch `m` teilbar sind.
 */
 int sum_of_doubly_divisibles(int n, int l, int m) {
-    return 0;
+    int i = 0;
+    return i;
 }
 
 /*
