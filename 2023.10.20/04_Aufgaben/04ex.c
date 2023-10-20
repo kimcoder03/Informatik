@@ -24,12 +24,23 @@ Headerfile und die zugehörige Implementierung sind bereits eingebunden, die Fun
 also einfach verwendet werden.
 */
 Canvas draw_odd_circle(Canvas c, int x, int y, int radius_from_middle) {
-    int height = canvas_height(c);
-    int width = canvas_width(c);
+    int canvasWidth = canvas_width(c);
+    int canvasHeight = canvas_height(c);
 
-    for (int x = 0; x < width; x++) {
-        for (int y = 0; y < height; y++) {
-            c = canvas_set_black(c, x, y);
+    if (x >= canvasWidth) {
+        x = canvasWidth - 1;
+    }
+    if (y >= canvasHeight) {
+        y = canvasHeight - 1;
+    }
+
+    for (int row = 0; row < canvasHeight; row++) {
+        for (int col = 0; col < canvasWidth; col++) {
+            int dist = distance(col, row, x, y);
+            
+            if (dist <= radius_from_middle) {
+                c = canvas_set_black(c, col, row);
+            }
         }
     }
     return c;
@@ -45,7 +56,14 @@ Die Datei `04ex_helpers.h` mit den Hilsfunktionen enthält eine Funktion `square
 Distanz zu berechnen.
 */
 int my_distance(int x0, int y0, int x1, int y1) {
-    return 0;
+    int a = x1 - x0;
+    int b = y1 - y0;
+
+    int c_squared = (a * a) + (b * b);
+
+    int rounded_c = squareroot(c_squared);
+
+    return rounded_c;
 }
 
 /*

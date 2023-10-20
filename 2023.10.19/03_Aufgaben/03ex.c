@@ -183,7 +183,7 @@ Canvas descending_diagonal(Canvas c) {
 }
 
 /*
-Aufgabe 3a:
+Aufgabe 3a: ?????
 Diese Funktion soll ein gefülltes schwarzes Rechteck auf die Canvas zeichnen. Die obere linke Ecke des Rechtecks hat die
 Koordinaten `(x, y)`. Die Breite des Rechtecks ist `width`, und die Höhe ist `height`. Falls das Rechteck nicht
 auf die Canvas passt, sollen einfach die Teile ignoriert werden welche außerhalb liegen würden.
