@@ -157,7 +157,7 @@ Canvas paint_it_black(Canvas c) {
         for (int y = 0; y < height; y++) {
             c = canvas_set_black(c, x, y);
         }
-    }
+    }s
     return c;
 }
 

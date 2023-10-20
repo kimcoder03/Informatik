@@ -24,6 +24,14 @@ Headerfile und die zugehörige Implementierung sind bereits eingebunden, die Fun
 also einfach verwendet werden.
 */
 Canvas draw_odd_circle(Canvas c, int x, int y, int radius_from_middle) {
+    int height = canvas_height(c);
+    int width = canvas_width(c);
+
+    for (int x = 0; x < width; x++) {
+        for (int y = 0; y < height; y++) {
+            c = canvas_set_black(c, x, y);
+        }
+    }
     return c;
 }
 
