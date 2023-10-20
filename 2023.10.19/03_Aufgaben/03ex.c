@@ -172,10 +172,10 @@ Canvas descending_diagonal(Canvas c) {
     int height = canvas_height(c);
     int width = canvas_width(c);
     
-    for (int x = 0; x < height; x++) {
-        for (int y = 0; y < width; y++) {
-            if (height - y -1 >= x) {
-                c = canvas_set_black(c, y, x);
+    for (int a = 0; a < height; a++) {
+        for (int b = 0; b < width; b++) {
+            if (height - b -1 >= a) {
+                c = canvas_set_black(c, b, a);
             }
         }
     }
@@ -204,7 +204,7 @@ Canvas draw_rectangle(Canvas c, int x, int y, int width, int height) {
             c = canvas_set_black(c, col, row);
         }
     }
-    
+  
     return c;
 }
 
