@@ -209,6 +209,7 @@ Canvas draw_rectangle(Canvas c, int x, int y, int width, int height) {
 }
 
 /*
+
 Aufgabe 3b:
 Diese Funktion soll ein gefülltes schwarzes Rechteck auf die Canvas zeichnen. Die obere linke Koordinate des Rechtecks
 ist `(x0, y0)` und die untere rechte Koordinate ist `(x1, y1)`, und es gilt immer `x1 >= x0` und `y1 <= y0`.
