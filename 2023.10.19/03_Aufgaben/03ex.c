@@ -157,7 +157,7 @@ Canvas paint_it_black(Canvas c) {
         for (int y = 0; y < height; y++) {
             c = canvas_set_black(c, x, y);
         }
-    }s
+    }
     return c;
 }
 
@@ -189,6 +189,22 @@ Koordinaten `(x, y)`. Die Breite des Rechtecks ist `width`, und die Höhe ist `h
 auf die Canvas passt, sollen einfach die Teile ignoriert werden welche außerhalb liegen würden.
 */
 Canvas draw_rectangle(Canvas c, int x, int y, int width, int height) {
+    int canvasWidth = canvas_width(c);
+    int canvasHeight = canvas_height(c);
+
+    if (x + width >= canvasWidth) {
+        width = canvasWidth - x;
+    }
+    if (y + height >= canvasHeight) {
+        y = canvasHeight - height;
+    }
+
+    for (int row = y; row < y + height; row++) {
+        for (int col = x; col < x + width; col++) {
+            c = canvas_set_black(c, col, row);
+        }
+    }
+    
     return c;
 }
 
