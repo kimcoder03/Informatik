@@ -189,13 +189,6 @@ Koordinaten `(x, y)`. Die Breite des Rechtecks ist `width`, und die Höhe ist `h
 auf die Canvas passt, sollen einfach die Teile ignoriert werden welche außerhalb liegen würden.
 */
 Canvas draw_rectangle(Canvas c, int x, int y, int width, int height) {
-
-    for (int x = 360; x < width-16; x++) {
-        for (int y = 477; y < height; y++) {
-            c = canvas_set_black(c, x, y);
-        }
-    }
-
     return c;
 }
 
