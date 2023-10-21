@@ -191,6 +191,21 @@ auf die Canvas passt, sollen einfach die Teile ignoriert werden welche außerhal
 Canvas draw_rectangle(Canvas c, int x, int y, int width, int height) {
     int canvasWidth = canvas_width(c);
     int canvasHeight = canvas_height(c);
+    for (int i = 0; i < canvasWidth; i++)
+    {
+        for (int a = 0; a < canvasHeight; a++)
+        {
+            if (x <= i && i < x + width && y >= a && a > y - height) {
+                c = canvas_set_black(c, i, a);
+            }
+        }
+
+    }
+    return c;
+}
+    /*
+    int canvasWidth = canvas_width(c);
+    int canvasHeight = canvas_height(c);
 
     if (x + width >= canvasWidth) {
         width = canvasWidth - x;
@@ -204,12 +219,10 @@ Canvas draw_rectangle(Canvas c, int x, int y, int width, int height) {
             c = canvas_set_black(c, col, row);
         }
     }
-  
+ 
     return c;
 }
-
 /*
-
 Aufgabe 3b:
 Diese Funktion soll ein gefülltes schwarzes Rechteck auf die Canvas zeichnen. Die obere linke Koordinate des Rechtecks
 ist `(x0, y0)` und die untere rechte Koordinate ist `(x1, y1)`, und es gilt immer `x1 >= x0` und `y1 <= y0`.
