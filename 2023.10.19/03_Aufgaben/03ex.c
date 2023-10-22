@@ -203,7 +203,7 @@ Canvas draw_rectangle(Canvas c, int x, int y, int width, int height) {
     }
     return c;
 }
-    /*
+    /* Hat nicht funkzuniert?
     int canvasWidth = canvas_width(c);
     int canvasHeight = canvas_height(c);
 
@@ -222,6 +222,8 @@ Canvas draw_rectangle(Canvas c, int x, int y, int width, int height) {
  
     return c;
 }
+*/
+
 /*
 Aufgabe 3b:
 Diese Funktion soll ein gefülltes schwarzes Rechteck auf die Canvas zeichnen. Die obere linke Koordinate des Rechtecks
@@ -232,5 +234,18 @@ Tipp: Ob Sie diese Funktion von Grund auf implementieren oder `draw_rectangle` v
 Wir empfehlen beides auszuprobieren und selbst zu entscheiden welche Lösung Sie eleganter finden.
 */
 Canvas draw_rectangle_via_corners(Canvas c, int x0, int y0, int x1, int y1) {
+    int canvasWidth = canvas_width(c);
+    int canvasHeight = canvas_height(c);
+    for (int i = 0; i < canvasWidth; i++)
+    {
+        for (int a = 0; a < canvasHeight; a++)
+        {
+            if (x0 <= i && i < x0 + x1 && y0 >= a && a > y0 - y1) {
+                c = canvas_set_black(c, i, a);
+            }
+        }
+
+    }
     return c;
 }
+
