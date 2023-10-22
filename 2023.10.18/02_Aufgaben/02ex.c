@@ -192,18 +192,18 @@ int sum_first_primes(int n) {
     Beispiel für `n = 4`: `2 + 3 + 5 + 7 = 17`.
     */
     /* BEGIN CHANGES */
-int p = 0;
-int i = 0;
-while (p < n)
-{
-    if (is_prime(i) == 1)
-    {
-        p++;
-        result += i;
+    int num = 2;
+
+    while (n > 0) {
+        if (is_prime(num)) {
+            result += num;
+            n--;
+        }
+        num++;
     }
-    i++;
+
+    return result;
 }
 
     /* END CHANGES */
-    return result;
-}
+
