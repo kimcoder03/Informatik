@@ -191,6 +191,7 @@ auf die Canvas passt, sollen einfach die Teile ignoriert werden welche außerhal
 Canvas draw_rectangle(Canvas c, int x, int y, int width, int height) {
     int canvasWidth = canvas_width(c);
     int canvasHeight = canvas_height(c);
+    
     for (int i = 0; i < canvasWidth; i++)
     {
         for (int a = 0; a < canvasHeight; a++)
