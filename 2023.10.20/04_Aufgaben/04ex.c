@@ -43,6 +43,7 @@ Canvas draw_odd_circle(Canvas c, int x, int y, int radius_from_middle) {
             }
         }
     }
+    
     return c;
 }
 
