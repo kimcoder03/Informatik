@@ -17,28 +17,42 @@ _Benutzen Sie keine Schleifen - Die Aufgabe soll über Rekursion gelöst werden!
 
 */
 Canvas recursive_line(Canvas c, int x, int y, int width) {
+/*
     int canvasWidth = canvas_width(c);
     //int canvasHeight = canvas_height(c);
 
-    int Recursive(int i)
+    void Repeatuntilyoudie(int i)
     {
-        if (canvasWidth - y => width)
+        if (canvasWidth - y >= width)
         {
-            c = canvas_set_black(c, x, i)
-            i++;
+            c = canvas_set_black(c, x, i);
+            Repeatuntilyoudie(i++);
         }
         else
         {
             return c;
         }
     }    
+}
+*/
+int canvasWidth = canvas_width(c);
+
+    void RepeatUntilYouDie(int i) {
+        if (canvasWidth - y >= width) {
+            c = canvas_set_black(c, x, i);
+            RepeatUntilYouDie(i + 1);
+        }
+    }
+
+    RepeatUntilYouDie(y); // Call the recursive function with the starting 'y' coordinate.
+    return c; // Return the updated canvas.
+}
+
 /*
     for (int i = 0; i < canvasWidth; i++)
     {
             if (x <= i && i < x + width)
 */
-    return c;
-}
 
 /*
 Aufgabe 1b:
