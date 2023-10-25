@@ -17,8 +17,43 @@ _Benutzen Sie keine Schleifen - Die Aufgabe soll über Rekursion gelöst werden!
 
 */
 Canvas recursive_line(Canvas c, int x, int y, int width) {
-    return c;
+/*
+    int canvasWidth = canvas_width(c);
+    //int canvasHeight = canvas_height(c);
+
+    void Repeatuntilyoudie(int i)
+    {
+        if (canvasWidth - y >= width)
+        {
+            c = canvas_set_black(c, x, i);
+            Repeatuntilyoudie(i++);
+        }
+        else
+        {
+            return c;
+        }
+    }    
 }
+*/
+int canvasWidth = canvas_width(c);
+
+int i = x;
+    if (x <= i + width) { //we need function that start at x and repeat until x + width.
+        c = canvas_set_black(c, x, y);
+        x++;
+        recursive_line(c, x, y, width);
+    }
+    else
+    {
+        return c;
+    }
+}
+
+/*
+    for (int i = 0; i < canvasWidth; i++)
+    {
+            if (x <= i && i < x + width)
+*/
 
 /*
 Aufgabe 1b:

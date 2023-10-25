@@ -23,26 +23,21 @@ Nutzen Sie für die Distanzbestimmung die `distance` Funktion aus `04ex_helpers.
 Headerfile und die zugehörige Implementierung sind bereits eingebunden, die Funktion kann
 also einfach verwendet werden.
 */
+
 Canvas draw_odd_circle(Canvas c, int x, int y, int radius_from_middle) {
     int canvasWidth = canvas_width(c);
     int canvasHeight = canvas_height(c);
 
-    if (x >= canvasWidth) {
-        x = canvasWidth - 1;
-    }
-    if (y >= canvasHeight) {
-        y = canvasHeight - 1;
-    }
-
     for (int row = 0; row < canvasHeight; row++) {
         for (int col = 0; col < canvasWidth; col++) {
-            int dist = distance(col, row, x, y);
+            int dist = distance(x, y, col, row);
             
             if (dist <= radius_from_middle) {
                 c = canvas_set_black(c, col, row);
             }
         }
     }
+    
     return c;
 }
 
