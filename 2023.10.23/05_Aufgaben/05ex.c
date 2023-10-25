@@ -37,15 +37,16 @@ Canvas recursive_line(Canvas c, int x, int y, int width) {
 */
 int canvasWidth = canvas_width(c);
 
-    void RepeatUntilYouDie(int i) {
-        if (canvasWidth - y >= width) {
-            c = canvas_set_black(c, x, i);
-            RepeatUntilYouDie(i + 1);
-        }
+int i = x;
+    if (x <= i + width) { //we need function that start at x and repeat until x + width.
+        c = canvas_set_black(c, x, y);
+        x++;
+        recursive_line(c, x, y, width);
     }
-
-    RepeatUntilYouDie(y); // Call the recursive function with the starting 'y' coordinate.
-    return c; // Return the updated canvas.
+    else
+    {
+        return c;
+    }
 }
 
 /*
