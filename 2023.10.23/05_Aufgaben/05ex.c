@@ -13,47 +13,20 @@ cc -std=c11 -g -Wall 05ex_test.c -o 05ex_test.o -lm && ./05ex_test.o
 Aufgabe 1a:
 Zeichnen Sie eine horizontale Linie der Länge `width`, deren am weitesten links liegender Pixel bei `(x, y)` ist.
 
-_Benutzen Sie keine Schleifen - Die Aufgabe soll über Rekursion gelöst werden!_
-
+_Benutzen Sie keine Schleifen - Die Aufgabe soll über Rekursion gelöst werden!
 */
+
 Canvas recursive_line(Canvas c, int x, int y, int width) {
-/*
-    int canvasWidth = canvas_width(c);
-    //int canvasHeight = canvas_height(c);
-
-    void Repeatuntilyoudie(int i)
-    {
-        if (canvasWidth - y >= width)
+    if (width-1 >= 0)
+    {            
+        recursive_line(c, x+1, y, width-1);
+           if (x >= 0 && x < canvas_width(c) && y >= 0 && y < canvas_height(c))
         {
-            c = canvas_set_black(c, x, i);
-            Repeatuntilyoudie(i++);
+            return canvas_set_black(c, x, y);
         }
-        else
-        {
-            return c;
-        }
-    }    
-}
-*/
-int canvasWidth = canvas_width(c);
-
-int i = x;
-    if (x <= i + width) { //we need function that start at x and repeat until x + width.
-        c = canvas_set_black(c, x, y);
-        x++;
-        recursive_line(c, x, y, width);
     }
-    else
-    {
-        return c;
-    }
+    return c;
 }
-
-/*
-    for (int i = 0; i < canvasWidth; i++)
-    {
-            if (x <= i && i < x + width)
-*/
 
 /*
 Aufgabe 1b:
@@ -62,6 +35,19 @@ Zeichnen Sie ein Rechteck mit der Breite `width` und der Höhe `height`. Der Pix
 _Benutzen Sie keine Schleifen, die Aufgabe soll über Rekursion gelöst werden!_
 */
 Canvas recursive_rectangle(Canvas c, int x, int y, int width, int height) {
+
+    if (width -1 >= 0)
+    {
+        recursive_rectangle(c, x + 1, y, width - 1, height);
+            if (height +1 >= 0)
+            {
+                recursive_rectangle(c, x, y - 1, width, height - 1);
+                    if (x >= 0 && x < canvas_width(c) && y >= 0 && y < canvas_height(c))
+                    {
+                        return canvas_set_black(c, x, y);
+                    }
+            }
+    }
     return c;
 }
 
