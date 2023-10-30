@@ -36,6 +36,7 @@ Aber Vorsicht: bei Division auf `int`s wird immer zur Null abgerundet, während 
 Hilfsfunktion `float normalize(int value, int max)` ? :-) )
 */
 Canvas swatch_red_green(Canvas c) {
+    c = canvas_set_r(c, x, y, 1.0f);
     return c;
 }
 
