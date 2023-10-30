@@ -36,18 +36,17 @@ _Benutzen Sie keine Schleifen, die Aufgabe soll über Rekursion gelöst werden!_
 */
 Canvas recursive_rectangle(Canvas c, int x, int y, int width, int height) {
 
-    if (width -1 >= 0)
+    if (height -1 >= 0)
     {
-        recursive_rectangle(c, x + 1, y, width - 1, height);
-            if (height +1 >= 0)
+        recursive_line(c, x, y, width);
+        recursive_rectangle(c, x, y + 1, width, height - 1);
+        
+        if (x >= 0 && x < canvas_width(c) && y <= 0 && y < canvas_height(c))
             {
-                recursive_rectangle(c, x, y - 1, width, height - 1);
-                    if (x >= 0 && x < canvas_width(c) && y >= 0 && y < canvas_height(c))
-                    {
-                        return canvas_set_black(c, x, y);
-                    }
+                c = canvas_set_black(c, x, y);
             }
     }
+
     return c;
 }
 
@@ -91,10 +90,42 @@ nicht-negativen, ganzzahligen Exponenten `exp`.
 
 _Benutzen Sie keine Schleifen, die Aufgabe soll über Rekursion gelöst werden!_
 */
+
 int power(int b, int exp){
-   return 0;
+
+    if (exp == 0 && b == 0)
+    {
+        return 0;
+    }
+    else if (exp == 0)
+    {
+        return 1;
+    }
+    else if (exp > 0)
+    {
+        return b * power(b, exp - 1);
+    }
+   
 }
 
+/*
+int power(int b, int exp){
+
+    if (exp == 0 && b == 0)
+    {
+        return 0;
+    }
+    else if (exp == 0)
+    {
+        return 1;
+    }
+    else if (exp > 1)
+    {
+        b = b * power(b, exp - 1);
+    }
+    return b;
+}
+*/
 /*
 Aufgabe 2b:
 Diese Funktion soll den Sierpinski Carpet der Ordnung `n` auf die Canvas zeichnen, mit unterer linker Ecke an Koordinate `(x, y)`.
@@ -102,8 +133,68 @@ Diese Funktion soll den Sierpinski Carpet der Ordnung `n` auf die Canvas zeichne
 _Benutzen Sie keine Schleifen, die Aufgabe soll über Rekursion gelöst werden!_
 */
 Canvas sierpinski_carpet(Canvas c, int n, int x, int y){
+    if(n == 0){
+        canvas_set_black(c,x,y);
+
+    }
+    else
+    {
+        sierpinski_carpet(c,n-1,x ,y);
+
+        sierpinski_carpet(c,n-1,x + power(3,n-1),y);
+        sierpinski_carpet(c,n-1,x + power(3,n-1)*2 ,y);
+
+        sierpinski_carpet(c,n-1,x,y + power(3,n-1));
+        sierpinski_carpet(c,n-1,x,y + power(3,n-1)*2);
+
+        sierpinski_carpet(c,n-1,x + power(3,n-1),y + power(3,n-1)*2);
+        sierpinski_carpet(c,n-1,x + power(3,n-1)*2,y + power(3,n-1)*2);
+
+        sierpinski_carpet(c,n-1,x + power(3,n-1)*2 ,y + power(3,n-1));
+        sierpinski_carpet(c,n-1,x + power(3,n-1)*2 ,y + power(3,n-1)*2);
+
+
+    /*
+    if (n == 0)
+    {
+        c = canvas_set_black(c, x, y);
+    }
+    else
+    {
+        c = canvas_set_black(c, x, y);
+
+        c = canvas_set_black(c, x + power(3, n - 1), y);
+        c = canvas_set_black(c, x + power(3, n - 1)*2, y);
+
+        c = canvas_set_black(c, x, y + power(3, n - 1));
+        c = canvas_set_black(c, x, y + power(3, n - 1)*2);
+
+        c = canvas_set_black(c, x + power(3, n - 1), y + power(3, n - 1)*2);
+
+        c = canvas_set_black(c, x + power(3, n - 1)*2, y + power(3, n - 1));
+        c = canvas_set_black(c, x + power(3, n - 1)*2, y + power(3, n - 1)*2);
+*/
+/*
+        c = canvas_set_black(c, x, y);
+
+        c = canvas_set_black(c, x + 1, y);
+        c = canvas_set_black(c, x + 2, y);
+
+        c = canvas_set_black(c, x, y + 1);
+        c = canvas_set_black(c, x, y + 2);
+
+
+
+        c = canvas_set_black(c, x + 1, y + 2);
+        c = canvas_set_black(c, x + 2, y + 2);
+
+        c = canvas_set_black(c, x + 2, y + 1);
+*/
+    }
+      
     return c;
 }
+
 
 /*
 Aufgabe 3:
