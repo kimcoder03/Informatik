@@ -68,7 +68,13 @@ Tipp: Finden Sie die größte natürliche Zahl, deren Quadrat kleiner oder gleic
 testen nur mit relativ kleinen Zahlen.
 */
 int my_squareroot(int n) {
-    return 0;
+    int result = 0;
+    while (result * result <= n)
+    {
+        result = result + 1;
+    }
+    
+    return result - 1;
 }
 
 /*
@@ -85,8 +91,30 @@ Für Kreise mit _geradem_ Durchmesser rufen Sie Ihre `draw_odd_circle` vier mal 
 welche den exakten Mittelpunkt des erwünschten Kreises umgeben.
 */
 Canvas draw_circle(Canvas c, int x, int y, int diameter) {
+/*
+    int centerX = x + diameter / 2;
+    int centerY = y + diameter / 2;
+    int radius = diameter / 2 + 1;
+
+    c = draw_odd_circle(c, centerX, centerY, radius);
+    c = draw_odd_circle(c, centerX, centerY, radius);
+    c = draw_odd_circle(c, centerX, centerY, radius);
+    c = draw_odd_circle(c, centerX, centerY, radius);
+
     return c;
 }
+*/
+    int centerX = x + diameter / 2;
+    int centerY = y + diameter / 2;
+
+    c = draw_odd_circle(c, centerX, centerY, diameter / 2);  // Left
+    c = draw_odd_circle(c, centerX + 1, centerY, diameter / 2);  // Right
+    c = draw_odd_circle(c, centerX, centerY + 1, diameter / 2);  // Above
+    c = draw_odd_circle(c, centerX, centerY, diameter / 2);  // Below
+
+    return c;
+}
+
 
 /*
 Aufgabe 1e:
@@ -95,7 +123,7 @@ Kreisezeichnen implementiert. Das ist ziemlich cool!
 Geben Sie zur Feier `5` zurück.
 */
 int high_five() {
-    return 0;
+    return 5;
 }
 
 /*
@@ -107,7 +135,20 @@ Zum Beispiel `hailstone(1) == 0`, `hailstone(4) == 2` (4 -> 2 -> 1), und `hailst
 Berechnen Sie die Hailstone-Zahl vom Parameter `n`.
 */
 int hailstone(int n) {
-    return 0;
+        int steps = 0;
+    
+    while (n != 1) {
+        if (n % 2 == 0) {
+            // If n is even, divide it by 2
+            n /= 2;
+        } else {
+            // If n is odd, multiply it by 3 and add 1
+            n = 3 * n + 1;
+        }
+        steps = step + 1;
+    }
+
+    return steps;
 }
 
 /*

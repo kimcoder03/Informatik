@@ -148,52 +148,34 @@ Canvas sierpinski_carpet(Canvas c, int n, int x, int y){
         sierpinski_carpet(c,n-1,x,y + power(3,n-1)*2);
 
         sierpinski_carpet(c,n-1,x + power(3,n-1),y + power(3,n-1)*2);
-        sierpinski_carpet(c,n-1,x + power(3,n-1)*2,y + power(3,n-1)*2);
 
         sierpinski_carpet(c,n-1,x + power(3,n-1)*2 ,y + power(3,n-1));
         sierpinski_carpet(c,n-1,x + power(3,n-1)*2 ,y + power(3,n-1)*2);
-
-
-    /*
-    if (n == 0)
-    {
-        c = canvas_set_black(c, x, y);
-    }
-    else
-    {
-        c = canvas_set_black(c, x, y);
-
-        c = canvas_set_black(c, x + power(3, n - 1), y);
-        c = canvas_set_black(c, x + power(3, n - 1)*2, y);
-
-        c = canvas_set_black(c, x, y + power(3, n - 1));
-        c = canvas_set_black(c, x, y + power(3, n - 1)*2);
-
-        c = canvas_set_black(c, x + power(3, n - 1), y + power(3, n - 1)*2);
-
-        c = canvas_set_black(c, x + power(3, n - 1)*2, y + power(3, n - 1));
-        c = canvas_set_black(c, x + power(3, n - 1)*2, y + power(3, n - 1)*2);
-*/
-/*
-        c = canvas_set_black(c, x, y);
-
-        c = canvas_set_black(c, x + 1, y);
-        c = canvas_set_black(c, x + 2, y);
-
-        c = canvas_set_black(c, x, y + 1);
-        c = canvas_set_black(c, x, y + 2);
-
-
-
-        c = canvas_set_black(c, x + 1, y + 2);
-        c = canvas_set_black(c, x + 2, y + 2);
-
-        c = canvas_set_black(c, x + 2, y + 1);
-*/
     }
       
     return c;
 }
+
+/*
+    if (n == 0) {
+        canvas_set_black(c, x, y); // Set the center pixel to black in the base case
+    } else {
+        sierpinski_carpet(c, n - 1, x, y);
+
+        sierpinski_carpet(c, n - 1, x + power(3, n - 1), y);
+        sierpinski_carpet(c, n - 1, x + power(3, n - 1) * 2, y);
+
+        sierpinski_carpet(c, n - 1, x, y + power(3, n - 1));
+        sierpinski_carpet(c, n - 1, x, y + power(3, n - 1) * 2);
+
+        sierpinski_carpet(c, n - 1, x + power(3, n - 1), y + power(3, n - 1) * 2);
+
+        sierpinski_carpet(c, n - 1, x + power(3, n - 1) * 2, y + power(3, n - 1) * 2);
+        sierpinski_carpet(c, n - 1, x + power(3, n - 1) * 2, y + power(3, n - 1));
+    }
+    return c;
+}
+*/
 
 
 /*
