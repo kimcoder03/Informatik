@@ -35,20 +35,16 @@ Zeichnen Sie ein Rechteck mit der Breite `width` und der Höhe `height`. Der Pix
 _Benutzen Sie keine Schleifen, die Aufgabe soll über Rekursion gelöst werden!_
 */
 Canvas recursive_rectangle(Canvas c, int x, int y, int width, int height) {
-/*
-    for (height > 0; height--;)
-    {
-        recursive_line(c, x, y + 1 ,width);
-        y++;
-    }
-*/
+    canvas_set_black(c, x, y);
+    recursive_line(c, x, y ,width);
 
+/*
     if(height > 0)
     {
         recursive_line(c, x, y ,width);
         recursive_rectangle(c, x, y + 1, width, height - 1);
     }
-
+*/
 
     //bottomhalf
 /*
