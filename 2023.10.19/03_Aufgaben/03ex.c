@@ -1,4 +1,5 @@
 /*
+- Draw rectangle via corners (last)
 Willkommen zum dritten Aufgabenblatt vom Programmierkurs. Auf diesem Aufgabenblatt geht es um folgende neue Konzepte:
 
 - Aufrufen von Funktionen

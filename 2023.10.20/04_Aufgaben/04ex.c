@@ -1,4 +1,5 @@
 /*
+- Draw circle
 Willkommen zum vierten Aufgabenblatt vom Programmierkurs. Auf diesem Aufabenblatt geht es darum, ein komplizierteres Problem wiederholt in Teilprobleme zu zerlegen.
 
 Um die Tests für dieses Blatt zu kompilieren und zu starten, führen Sie den folgenden Befehl aus:
@@ -138,14 +139,15 @@ int hailstone(int n) {
         int steps = 0;
     
     while (n != 1) {
-        if (n % 2 == 0) {
-            // If n is even, divide it by 2
+        if (n % 2 == 0)
+        {
             n /= 2;
-        } else {
-            // If n is odd, multiply it by 3 and add 1
+        }
+        else
+        {
             n = 3 * n + 1;
         }
-        steps = step + 1;
+        steps = steps + 1;
     }
 
     return steps;

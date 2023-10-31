@@ -19,7 +19,7 @@ _Benutzen Sie keine Schleifen - Die Aufgabe soll über Rekursion gelöst werden!
 Canvas recursive_line(Canvas c, int x, int y, int width) {
     if (width-1 >= 0)
     {            
-        recursive_line(c, x+1, y, width-1);
+        recursive_line(c, x + 1, y, width - 1);
            if (x >= 0 && x < canvas_width(c) && y >= 0 && y < canvas_height(c))
         {
             return canvas_set_black(c, x, y);
@@ -36,19 +36,13 @@ _Benutzen Sie keine Schleifen, die Aufgabe soll über Rekursion gelöst werden!_
 */
 Canvas recursive_rectangle(Canvas c, int x, int y, int width, int height) {
 
-    int H = canvas_height(c);
-    int W = canvas_width(c);
-    
-   
-    
-    if(height > 0){
-        recursive_line(c,x,y ,width);
-        recursive_rectangle(c,x,y+1, width,height-1);
+    if(height > 0)
+    {
+        recursive_line(c, x, y ,width);
+        recursive_rectangle(c, x, y + 1, width, height - 1);
         
-        
-    
-        if (0<=x && x< W && 0<= y && y<H){
-            
+        if (0 <= x && x < canvas_width(c) && 0 <= y && y < canvas_height(c))
+        {    
             c = canvas_set_black(c,x,y);
         }
     }
@@ -193,21 +187,15 @@ zu vier direkte Nachbarn - die Diagonalen zählen nicht.
 
 Funktionen, um die Farbe eines Pixels auf der Canvas zu bestimmen, sind im Headerfile der Canvas dokumentiert.
 */
-Canvas bucket_fill(Canvas c, int x, int y) {
-    
-    int a,b;
-    int H = canvas_height(c);
-    int W = canvas_width(c);
-    for(a = 0; a< W; a++){
-        for(b = 0; b <H; b++){
-
-           
+Canvas bucket_fill(Canvas c, int x, int y){
+/*
+    for(int a = 0; a < canvas_width(c); a++)
+    {
+        for(int b = 0; b < canvas_height(c); b++)
+        {
                 c = canvas_set_black(c,a,b);
-            
-
         }
     }
-
-
+*/
     return c;
 }
