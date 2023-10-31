@@ -17,10 +17,10 @@ _Benutzen Sie keine Schleifen - Die Aufgabe soll über Rekursion gelöst werden!
 */
 
 Canvas recursive_line(Canvas c, int x, int y, int width) {
-    if (width-1 >= 0)
+    if (width > 0)
     {            
         recursive_line(c, x + 1, y, width - 1);
-           if (x >= 0 && x < canvas_width(c) && y >= 0 && y < canvas_height(c))
+        if (x >= 0 && x < canvas_width(c) && y >= 0 && y < canvas_height(c))
         {
             return canvas_set_black(c, x, y);
         }
@@ -35,18 +35,36 @@ Zeichnen Sie ein Rechteck mit der Breite `width` und der Höhe `height`. Der Pix
 _Benutzen Sie keine Schleifen, die Aufgabe soll über Rekursion gelöst werden!_
 */
 Canvas recursive_rectangle(Canvas c, int x, int y, int width, int height) {
-
+    c = canvas_set_black(c, x, y);   
     if(height > 0)
     {
+        c = canvas_set_black(c, x, y);
+/*
         recursive_line(c, x, y ,width);
-        recursive_rectangle(c, x, y + 1, width, height - 1);
-        
-        if (0 <= x && x < canvas_width(c) && 0 <= y && y < canvas_height(c))
-        {    
-            c = canvas_set_black(c,x,y);
-        }
+        recursive_rectangle(c, x, y, width, height - 1);
+*/
     }
-        
+
+    //bottomhalf
+/*
+int half = height/2;
+    if (half > 0)
+    {
+        recursive_line(c, x, y , width);
+        recursive_rectangle(c, x, y + 1, width, half - 1);
+    }
+*/
+
+//tophalf
+/*
+    if (height > half)
+    {
+        recursive_line(c, x, y, width);
+        recursive_rectangle(c, x, y + half + 1, width, height);
+    }
+*/
+
+
     return c;
 }
 
@@ -139,18 +157,18 @@ Canvas sierpinski_carpet(Canvas c, int n, int x, int y){
     }
     else
     {
-        sierpinski_carpet(c,n-1,x ,y);
+        sierpinski_carpet(c, n-1, x ,y);
 
-        sierpinski_carpet(c,n-1,x + power(3,n-1),y);
-        sierpinski_carpet(c,n-1,x + power(3,n-1)*2 ,y);
+        sierpinski_carpet(c, n-1, x + power(3,n-1), y);
+        sierpinski_carpet(c, n-1, x + power(3,n-1)*2 , y);
 
-        sierpinski_carpet(c,n-1,x,y + power(3,n-1));
-        sierpinski_carpet(c,n-1,x,y + power(3,n-1)*2);
+        sierpinski_carpet(c, n-1, x, y + power(3,n-1));
+        sierpinski_carpet(c, n-1, x, y + power(3,n-1)*2);
 
-        sierpinski_carpet(c,n-1,x + power(3,n-1),y + power(3,n-1)*2);
+        sierpinski_carpet(c, n-1, x + power(3,n-1), y + power(3,n-1)*2);
 
-        sierpinski_carpet(c,n-1,x + power(3,n-1)*2 ,y + power(3,n-1));
-        sierpinski_carpet(c,n-1,x + power(3,n-1)*2 ,y + power(3,n-1)*2);
+        sierpinski_carpet(c, n-1, x + power(3,n-1)*2 , y + power(3,n-1));
+        sierpinski_carpet(c, n-1, x + power(3,n-1)*2 , y + power(3,n-1)*2);
     }
       
     return c;
