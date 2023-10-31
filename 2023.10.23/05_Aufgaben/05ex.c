@@ -35,15 +35,20 @@ Zeichnen Sie ein Rechteck mit der Breite `width` und der Höhe `height`. Der Pix
 _Benutzen Sie keine Schleifen, die Aufgabe soll über Rekursion gelöst werden!_
 */
 Canvas recursive_rectangle(Canvas c, int x, int y, int width, int height) {
-    c = canvas_set_black(c, x, y);   
+/*
+    for (height > 0; height--;)
+    {
+        recursive_line(c, x, y + 1 ,width);
+        y++;
+    }
+*/
+
     if(height > 0)
     {
-        c = canvas_set_black(c, x, y);
-/*
         recursive_line(c, x, y ,width);
-        recursive_rectangle(c, x, y, width, height - 1);
-*/
+        recursive_rectangle(c, x, y + 1, width, height - 1);
     }
+
 
     //bottomhalf
 /*
@@ -55,7 +60,7 @@ int half = height/2;
     }
 */
 
-//tophalf
+    //tophalf
 /*
     if (height > half)
     {
@@ -151,16 +156,19 @@ Diese Funktion soll den Sierpinski Carpet der Ordnung `n` auf die Canvas zeichne
 _Benutzen Sie keine Schleifen, die Aufgabe soll über Rekursion gelöst werden!_
 */
 Canvas sierpinski_carpet(Canvas c, int n, int x, int y){
-    if(n == 0){
-        canvas_set_black(c,x,y);
-
-    }
-    else
-    {
+        if(n == 0)
+        {
+            if (x < canvas_width(c) && y < canvas_height(c) && x >= 0 && y >= 0)
+            {
+                canvas_set_black(c, x, y);
+            }
+        }
+        else
+        {
         sierpinski_carpet(c, n-1, x ,y);
 
         sierpinski_carpet(c, n-1, x + power(3,n-1), y);
-        sierpinski_carpet(c, n-1, x + power(3,n-1)*2 , y);
+        sierpinski_carpet(c, n-1, x + power(3,n-1)*2, y);
 
         sierpinski_carpet(c, n-1, x, y + power(3,n-1));
         sierpinski_carpet(c, n-1, x, y + power(3,n-1)*2);
@@ -169,8 +177,8 @@ Canvas sierpinski_carpet(Canvas c, int n, int x, int y){
 
         sierpinski_carpet(c, n-1, x + power(3,n-1)*2 , y + power(3,n-1));
         sierpinski_carpet(c, n-1, x + power(3,n-1)*2 , y + power(3,n-1)*2);
-    }
-      
+        }
+
     return c;
 }
 
