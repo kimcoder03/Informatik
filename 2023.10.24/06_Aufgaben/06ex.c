@@ -35,8 +35,23 @@ Aber Vorsicht: bei Division auf `int`s wird immer zur Null abgerundet, während 
 "normalisieren" bezeichnet. Normalisieren kommt häufig vor, auch auf diesem Blatt. Wie wäre es also mit einer
 Hilfsfunktion `float normalize(int value, int max)` ? :-) )
 */
+
 Canvas swatch_red_green(Canvas c) {
-    c = canvas_set_r(c, x, y, 1.0f);
+    int canvasWidth = canvas_width(c);
+    int canvasHeight = canvas_height(c);
+
+    for (int y = canvasHeight - 1; y >= 0; y--)
+    {
+        for (int x = 0; x < canvasWidth; x++)
+        {
+            float red = (float)x / (canvasWidth - 1);
+            float green = 1.0 - (float)(canvasHeight - 1 - y) / (canvasHeight - 1);
+
+            c = canvas_set_r(c, x, y, red);
+            c = canvas_set_g(c, x, y, green);
+        }
+    }
+
     return c;
 }
 
