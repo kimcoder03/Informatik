@@ -71,6 +71,22 @@ Schreiben Sie die Funktion so, dass der jeweils richtige `channel` des Pixels mi
 erhält.
 */
 Canvas canvas_set_channel(Canvas c, int x, int y, ColorChannel channel, float v) {
+    if (x >= 0 && x < canvas_width(c) && y >= 0 && y < canvas_height(c))
+    {
+        switch (channel)
+        {
+            case Red:
+                c = canvas_set_r(c, x, y, v);
+                break;
+            case Green:
+                c = canvas_set_g(c, x, y, v);
+                break;
+            case Blue:
+                c = canvas_set_b(c, x, y, v);
+                break;
+        }
+    }
+
     return c;
 }
 
@@ -83,6 +99,21 @@ die Y-Achse.
 Alle nicht in den Parametern angegeben Farbkanäle sollen unverändert bleiben.
 */
 Canvas swatch_rgb(Canvas c, ColorChannel channel_x, ColorChannel channel_y) {
+    int canvasWidth = canvas_width(c);
+    int canvasHeight = canvas_height(c);
+
+    for (int x = 0; x < canvasWidth; x++)
+    {
+        for (int y = 0; y < canvasHeight; y++)
+        {
+            float Red = (float)x / (canvasWidth - 1);
+            float Green = (float)y / (canvasHeight - 1);
+
+            c = canvas_set_channel(c, x, y, channel_x, Red);
+            c = canvas_set_channel(c, x, y, channel_y, Green);
+        }
+    }
+
     return c;
 }
 
@@ -106,6 +137,10 @@ Flieder wäre dann z.B. (rot 219, grün 209, blau 255).
 */
 RGB lilac() {
     RGB color;
+    color.r = 0.86;
+    color.g = 0.82;
+    color.b = 1.0;
+
     return color;
 }
 
@@ -116,6 +151,13 @@ Kanäle gleichzeitig ansteuern!
 Setzen Sie die Farbe des Pixels mit Koordinate `(x, y)` auf die von `color` repräsentierte Farbe.
 */
 Canvas canvas_set_rgb_struct(Canvas c, int x, int y, RGB color) {
+    if (x >= 0 && x < canvas_width(c) && y >= 0 && y < canvas_height(c))
+    {
+        c = canvas_set_r(c, x, y, color.r);
+        c = canvas_set_g(c, x, y, color.g);
+        c = canvas_set_b(c, x, y, color.b);
+    }
+
     return c;
 }
 
@@ -127,7 +169,13 @@ und den Blauwert mit 0.1140 multipliziert, und die Resultate addiert.
 Der Grauton mit dieser Helligkeit setzt alle drei Farbkanäle auf diesen Wert.
 */
 RGB rgb_to_gray(RGB color) {
-    return color;
+    float new_value = 0.2989 * color.r + 0.587 * color.g + 0.1140 * color.b;
+    RGB new_color;
+    new_color.r = new_value;
+    new_color.g = new_value;
+    new_color.b = new_value;
+
+    return new_color;
 }
 
 /*

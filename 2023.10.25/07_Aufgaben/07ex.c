@@ -94,7 +94,7 @@ Aufgabe 2a:
 */
 RGB retrieve_from_pointer_struct(RGB *x) {
     RGB color;
-    return color;
+    return *x;
 }
 
 /*
@@ -102,6 +102,9 @@ Aufgabe 2b:
 `x` zeigt auf eine Farbe. Setzen Sie diese Farbe auf `Flieder` (rot 0.86, grün 0.82, blau 1.0).
 */
 void set_through_pointer_struct1(RGB *x) {
+    x->r = 0.86;
+    x->g = 0.82;
+    x->b = 1.0;
     return;
 }
 
@@ -110,6 +113,9 @@ Aufgabe 2c:
 `x` zeigt auf eine Farbe. `y` _ist_ eine Farbe. Setzen Sie den Wert auf den `x` zeigt auf den Wert von `y`.
 */
 void set_through_pointer_struct2(RGB *x, RGB y) {
+    x->r = y.r;
+    x->g = y.g;
+    x->b = y.b;
     return;
 }
 
@@ -119,6 +125,9 @@ Aufgabe 2d:
 Lassen Sie den Wert auf den `y` zeigt dabei unverändert.
 */
 void set_through_pointer_struct3(RGB *x, RGB *y) {
+    x->r = y->r;
+    x->g = y->g;
+    x->b = y->b;
     return;
 }
 
@@ -127,6 +136,9 @@ Aufgabe 2e:
 `x` und `y` zeigen beide auf Farben. Vertauschen Sie den Wert auf den `x` zeigt und den Wert auf den `y` zeigt.
 */
 void swap_struct(RGB *x, RGB *y) {
+    RGB z = *x;
+    *x = *y;
+    *y = z;
     return;
 }
 

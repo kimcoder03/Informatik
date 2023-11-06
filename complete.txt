@@ -3,4 +3,7 @@
 3 1 rectangle_corner
 4 2 draw_circle, own_test
 5 error
-6 
+6 last
+7
+8
+9
