@@ -92,27 +92,24 @@ Für Kreise mit _geradem_ Durchmesser rufen Sie Ihre `draw_odd_circle` vier mal 
 welche den exakten Mittelpunkt des erwünschten Kreises umgeben.
 */
 Canvas draw_circle(Canvas c, int x, int y, int diameter) {
-/*
+    
     int centerX = x + diameter / 2;
     int centerY = y + diameter / 2;
-    int radius = diameter / 2 + 1;
+    int radius = diameter / 2;
+    
+    if (diameter % 2 == 0)
+    {
+        c = draw_odd_circle(c, centerX, centerY, radius - 1); // right top
+        c = draw_odd_circle(c, centerX - 1, centerY, radius - 1); // left top
+        c = draw_odd_circle(c, centerX, centerY - 1, radius - 1); // right bottom
+        c = draw_odd_circle(c, centerX - 1, centerY - 1, radius - 1); // left bottom?
 
-    c = draw_odd_circle(c, centerX, centerY, radius);
-    c = draw_odd_circle(c, centerX, centerY, radius);
-    c = draw_odd_circle(c, centerX, centerY, radius);
-    c = draw_odd_circle(c, centerX, centerY, radius);
-
-    return c;
-}
-*/
-    int centerX = x + diameter / 2;
-    int centerY = y + diameter / 2;
-
-    c = draw_odd_circle(c, centerX, centerY, diameter / 2);  // Left
-    c = draw_odd_circle(c, centerX + 1, centerY, diameter / 2);  // Right
-    c = draw_odd_circle(c, centerX, centerY + 1, diameter / 2);  // Above
-    c = draw_odd_circle(c, centerX, centerY, diameter / 2);  // Below
-
+    }
+    else
+    {
+        c = draw_odd_circle(c, centerX, centerY, radius);
+    }
+    
     return c;
 }
 

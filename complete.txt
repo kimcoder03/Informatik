@@ -1,9 +1,9 @@
 1 done
 2 done
-3 1 rectangle_corner
-4 2 draw_circle, own_test
-5 error
-6 last
+3 done
+4 own_test
+5 done
+6 done
 7 4 ,5
 8
 9

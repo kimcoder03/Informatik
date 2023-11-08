@@ -189,5 +189,29 @@ Funktionen in einer Hilfsfunktion zusammenfassen welche die Farbe an der gegeben
 Wert vom Typ `RGB` zurück gibt.
 */
 Canvas canvas_to_gray(Canvas c) {
+int width = canvas_width(c);
+int height = canvas_height(c);
+
+for (int x = 0; x < width; x++)
+{
+    for (int y = 0; y < height; y++)
+    {
+        float r = canvas_get_r(c, x, y);
+        float g = canvas_get_g(c, x, y);
+        float b = canvas_get_b(c, x, y);
+
+        RGB color;
+        color.r = r;
+        color.g = g;
+        color.b = b;
+
+        RGB gray_color = rgb_to_gray(color);
+        c = canvas_set_r(c, x, y, gray_color.r);
+        c = canvas_set_g(c, x, y, gray_color.g);
+        c = canvas_set_b(c, x, y, gray_color.b);
+
+    }
+}
+
     return c;
 }

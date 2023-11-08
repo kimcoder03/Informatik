@@ -6,9 +6,9 @@
 #define RELATIVE_DIRECTORY_PATH "Testdata/" TEST_NAME "data/"
 #define TESTS_1A 5
 #define TESTS_1B 4
-#define TESTS_2A 14
+#define TESTS_2A 13
 #define TESTS_2B 7
-#define TESTS_3 8
+#define TESTS_3 12
 
 typedef struct Test1
 {
@@ -49,9 +49,9 @@ static exercises_1_data exercise_1a [TESTS_1A] = {
         { .x = -700, .y = -700, .width = 70, .height = 1, .filename = "exercise_1a_outside_expected.png"},
 };
 static exercises_1_data exercise_1b [TESTS_1B] = {
-        { .x = 134, .y = 112, .width = 50, .height = 50, .filename = "exercise_1b_inside_one_expected.png"},
-        { .x = 245, .y = 91, .width = 30, .height = 65, .filename = "exercise_1b_inside_two_expected.png"},
-        { .x = -65, .y = 42, .width = 140, .height = 79, .filename = "exercise_1b_partial_expected.png"},
+        { .x = 134, .y = 113, .width = 50, .height = 50, .filename = "exercise_1b_inside_one_expected.png"},
+        { .x = 245, .y = 82, .width = 30, .height = 75, .filename = "exercise_1b_inside_two_expected.png"},
+        { .x = -65, .y = 43, .width = 240, .height = 79, .filename = "exercise_1b_partial_expected.png"},
         { .x = -10, .y = -10, .width = 400, .height = 400, .filename = "exercise_1b_full_expected.png"},
 };
 
@@ -62,7 +62,7 @@ static exercise_2a_data exercise_2a [TESTS_2A] = {
         { .b = 2, .exp = 8, .expected = 256},
         { .b = 5, .exp = 0, .expected = 1},
         { .b = 0, .exp = 5, .expected = 0},
-        { .b = 0, .exp = 0, .expected = 0},
+        { .b = 0, .exp = 0, .expected = 1},
         { .b = 10, .exp = 6, .expected = 1000000},
         { .b = 2, .exp = 8, .expected = 256},
         { .b = 12, .exp = 3, .expected = 1728},
@@ -73,23 +73,27 @@ static exercise_2a_data exercise_2a [TESTS_2A] = {
 
 static exercise_2b_data exercise_2b [TESTS_2B] = {
         { .n = 0, .start_coord = 0, .filename = "exercise_2b_order_0_expected.png"},
-        { .n = 1, .start_coord = 1, .filename = "exercise_2b_order_1_expected.png"},
-        { .n = 2, .start_coord = 4, .filename = "exercise_2b_order_2_expected.png"},
-        { .n = 3, .start_coord = 13, .filename = "exercise_2b_order_3_expected.png"},
-        { .n = 4, .start_coord = 40, .filename = "exercise_2b_order_4_expected.png"},
-        { .n = 5, .start_coord = 121, .filename = "exercise_2b_order_5_expected.png"},
-        { .n = 6, .start_coord = 364, .filename = "exercise_2b_order_6_expected.png"},
+        { .n = 1, .start_coord = 0, .filename = "exercise_2b_order_1_expected.png"},
+        { .n = 2, .start_coord = 0, .filename = "exercise_2b_order_2_expected.png"},
+        { .n = 3, .start_coord = 0, .filename = "exercise_2b_order_3_expected.png"},
+        { .n = 4, .start_coord = 0, .filename = "exercise_2b_order_4_expected.png"},
+        { .n = 5, .start_coord = 0, .filename = "exercise_2b_order_5_expected.png"},
+        { .n = 6, .start_coord = 0, .filename = "exercise_2b_order_6_expected.png"},
 };
 
 static exercise_3_data exercise_3 [TESTS_3] = {
-        { .x = 50, .y = 50, .file_in = "exercise_3_simple_input.png", .file_out = "exercise_3_simple_expected.png"},
-        { .x = 250, .y = 250, .file_in = "exercise_3_big_input.png", .file_out = "exercise_3_big_expected.png"},
-        { .x = 10, .y = 20, .file_in = "exercise_3_line_input.png", .file_out = "exercise_3_line_one_expected.png"},
-        { .x = 390, .y = 390, .file_in = "exercise_3_line_input.png", .file_out = "exercise_3_line_two_expected.png"},
-        { .x = 200, .y = 200, .file_in = "exercise_3_rectangle_input.png", .file_out = "exercise_3_rectangle_one_expected.png"},
+        { .x = 2, .y = 8, .file_in = "exercise_3_simple_input.png", .file_out = "exercise_3_simple_expected.png"},
+        { .x = 2, .y = 8, .file_in = "exercise_3_simple_expected.png", .file_out = "exercise_3_simple_expected.png"},
+        { .x = 2, .y = 8, .file_in = "exercise_3_big_input.png", .file_out = "exercise_3_big_expected.png"},
+        { .x = -200, .y = -800, .file_in = "exercise_3_outside_input.png", .file_out = "exercise_3_outside_expected.png"},
+        { .x = 5, .y = 9, .file_in = "exercise_3_maze_input.png", .file_out = "exercise_3_maze_expected.png"},
+        { .x = 1, .y = 1, .file_in = "exercise_3_line_input.png", .file_out = "exercise_3_line_one_expected.png"},
+        { .x = 98, .y = 98, .file_in = "exercise_3_line_input.png", .file_out = "exercise_3_line_two_expected.png"},
+        { .x = 33, .y = 33, .file_in = "exercise_3_rectangle_input.png", .file_out = "exercise_3_rectangle_one_expected.png"},
         { .x = 1, .y = 1, .file_in = "exercise_3_rectangle_input.png", .file_out = "exercise_3_rectangle_two_expected.png"},
-        { .x = -400, .y = -400, .file_in = "exercise_3_outside_input.png", .file_out = "exercise_3_outside_expected.png"},
-        { .x = 210, .y = 177, .file_in = "exercise_3_maze_input.png", .file_out = "exercise_3_maze_expected.png"},
+        { .x = 1, .y = 5, .file_in = "exercise_3_z_nontrivial.png", .file_out = "exercise_3_z_nontrivial.png"},
+        { .x = 23, .y = 37, .file_in = "exercise_3_z_nontrivial.png", .file_out = "exercise_3_z_nontrivial_sky.png"},
+        { .x = 25, .y = 20, .file_in = "exercise_3_z_nontrivial.png", .file_out = "exercise_3_z_nontrivial_face.png"},
 };
 
 Canvas canvas_from_file(char *filename)
@@ -134,11 +138,11 @@ char* render_exercise_1b(Canvas t,exercises_1_data testcase)
 
     int len = strlen("Wir testen auf einem ") + strlen(width) + strlen("x") + strlen(height) +
               strlen(" Pixel Canvas mit einem Rechteck der Länge ") + strlen(rect_width) + strlen(" und der Höhe ") +
-              strlen(rect_height) + strlen(", mit der oberen linken Ecke bei (") +
+              strlen(rect_height) + strlen(", mit der unteren linken Ecke bei (") +
               strlen(x) + strlen(",") + strlen(y) + strlen(").") + 1;
     char *str = malloc(len);
     snprintf(str, len, "Wir testen auf einem %sx%s Pixel Canvas mit einem Rechteck der Länge %s und der Höhe %s, "
-                       "mit der oberen linken Ecke bei (%s,%s).",
+                       "mit der unteren linken Ecke bei (%s,%s).",
              width, height, rect_width, rect_height, x, y);
     free((char*) width);
     free((char*) height);
@@ -274,9 +278,9 @@ int main(int argc, char const *argv[]) {
             if(begin_testcase(&tester))
             {
                 Canvas expected = canvas_from_file(exercise_3[i].file_out);
-                Canvas got = canvas_from_file(exercise_3->file_in);
+                Canvas got = canvas_from_file(exercise_3[i].file_in);
                 free(got->name);
-                got->name = mallocx(strlen("bucket_fill"));
+                got->name = mallocx(strlen("bucket_fill")+1);
                 snprintf(got->name, strlen("bucket_fill")+1,"bucket_fill");
 
                 char *args = render_exercise_3(expected, exercise_3[i]);

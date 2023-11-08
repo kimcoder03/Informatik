@@ -26,6 +26,12 @@ Canvas canvas_set_black(Canvas c, int x, int y);
 
 /*
  * Gibt `1` zurück, falls der Pixel an der gegebenen Koordinate schwarz ist, ansonsten `0`.
+ *
+ * Die Parameter müssen innerhalb dieser Grenzen bleiben:
+ * 0 <= x < Canvasbreite
+ * 0 <= y < Canvashöhe
+ * Falls die Parameter außerhalb der Canvasgrenzen sind, gibt die Funktion '0' zurück,
+ * und der Testfall wird als fehlerhaft betrachtet.
  */
 int pixel_is_black(Canvas c, int x, int y);
 
@@ -41,6 +47,12 @@ Canvas canvas_set_white(Canvas c, int x, int y);
 
 /*
  * Gibt `1` zurück, falls der Pixel an der gegebenen Koordinate weiß ist, ansonsten `0`.
+ *
+ * Die Parameter müssen innerhalb dieser Grenzen bleiben:
+ * 0 <= x < Canvasbreite
+ * 0 <= y < Canvashöhe
+ * Falls die Parameter außerhalb der Canvasgrenzen sind, gibt die Funktion '0' zurück,
+ * und der Testfall wird als fehlerhaft betrachtet.
  */
 int pixel_is_white(Canvas c, int x, int y);
 
