@@ -248,7 +248,17 @@ int32_t frumpleflabblefizzledipp(int32_t x) {
     
     return frumple_result;
 }
+/*
+    int32_t x0 = x, x1 = x; 
 
+    fizzledipp(&x1);
+    int32_t flab = flabble(&x0,&x1);
+
+    int32_t z = 0, w = 27;
+    frumple( flab, &w, &z);
+    return z;
+}
+*/
 
 /*
 Pancakes? Pancakes!
@@ -270,6 +280,7 @@ Aufgabe 5a:
 Geben Sie zurück, wie viele Fruchtschichten der gegebene Pfannkuchenhaufen enthält.
 */
 int32_t count_fruit_layers(PileOfPancakes p) {
+    
     return 0;
 }
 
