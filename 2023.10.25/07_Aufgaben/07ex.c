@@ -240,7 +240,13 @@ Hinweis: flabble soll als _zweites_ Argument das Ergebnis von fizzledipp erhalte
 Argument die 27. `x` und der fizzledipp von `x` sind unterschiedliche Zahlen!
 */
 int32_t frumpleflabblefizzledipp(int32_t x) {
-    return 0;
+    int32_t flabble_result = flabble(&x, &x);
+    fizzledipp(&x);
+
+    int32_t frumple_result;
+    frumple(flabble_result, &x, &frumple_result);
+    
+    return frumple_result;
 }
 
 
