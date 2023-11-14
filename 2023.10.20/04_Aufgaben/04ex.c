@@ -150,6 +150,7 @@ int hailstone(int n) {
     return steps;
 }
 
+
 /*
 Aufgabe 2b:
 Unser Testrunner hat keine Tests für Aufgabe 2a. Falls Sie Ihre Lösung selber testen wollen, erstellen Sie am besten
@@ -161,5 +162,5 @@ allerdings Ihre eigenen Tests schreiben.
 Lassen Sie `99` von dieser Funktion zurückgeben um zu zeigen, dass Sie das verstanden haben.
 */
 int bring_your_own_tests() {
-    return 0;
+    return 99;
 }
